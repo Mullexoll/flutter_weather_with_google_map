@@ -1,0 +1,44 @@
+name: weather_app_flutter
+description: Flutter weather project with google maps.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  google_maps_flutter: ^2.5.0
+  google_maps_flutter_platform_interface: ^2.4.1
+  google_maps_flutter_android: ^2.5.1
+  geocoding: ^2.1.1
+  bloc: ^8.1.2
+  flutter_bloc: ^8.1.3
+  meta: ^1.9.1
+  flutter_svg: ^2.0.7
+  geolocator: ^10.1.0
+  equatable: ^2.0.5
+  http: ^1.1.0
+  custom_info_window: ^1.0.1
+  intl: ^0.18.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/fonts/
+    - assets/icons/
+    - assets/map_styles/google_map_aubergine_style.txt
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins_font/Poppins-Regular.ttf
+        - asset: assets/fonts/poppins_font/Poppins-Bold.ttf
+        - asset: assets/fonts/poppins_font/Poppins-Italic.ttf
