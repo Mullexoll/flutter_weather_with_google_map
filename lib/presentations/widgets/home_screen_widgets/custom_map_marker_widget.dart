@@ -105,6 +105,9 @@ class CustomMarker extends StatelessWidget {
                           width: 150,
                           height: 150,
                           fit: BoxFit.cover,
+                          errorBuilder: (c, o, s) {
+                            return const SizedBox();
+                          },
                         ),
                       ),
                     ],

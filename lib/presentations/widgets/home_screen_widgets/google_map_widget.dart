@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:weather_app_flutter/constants/home_screen_consts.dart';
+import 'package:weather_app_flutter/presentations/helpers/text_style_helper.dart';
 import 'package:weather_app_flutter/presentations/widgets/home_screen_widgets/custom_map_marker_widget.dart';
 
 import '../../../bloc/weather_bloc.dart';
@@ -129,8 +131,14 @@ class GoogleMapWidgetAppState extends State<GoogleMapWidget> {
         if (state is WeatherLoaded) {
           if (state.cityNotFoundException != null) {
             final snackBar = SnackBar(
-              content: const Text('City not found, please try again!'),
+              backgroundColor: Colors.white,
+              content: Text(
+                'City not found, please try again!',
+                style: primaryTextStyle15(),
+              ),
+              duration: const Duration(days: 1),
               action: SnackBarAction(
+                textColor: HomeScreenConsts.primaryColor,
                 label: 'OK',
                 onPressed: () {
                   BlocProvider.of<WeatherBloc>(context).add(
@@ -172,9 +180,10 @@ class GoogleMapWidgetAppState extends State<GoogleMapWidget> {
                   null,
                 ); //we will call this function when pressed on the map
               },
-              onCameraMoveStarted: () {
-                _customInfoWindowController.hideInfoWindow!();
-              },
+              myLocationEnabled: true,
+              myLocationButtonEnabled: true,
+              onCameraMoveStarted: () =>
+                  _customInfoWindowController.hideInfoWindow!(),
             ),
             CustomInfoWindow(
               controller: _customInfoWindowController,

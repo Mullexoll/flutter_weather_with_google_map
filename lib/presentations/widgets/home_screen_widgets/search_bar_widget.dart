@@ -50,8 +50,8 @@ class CustomSearchBarState extends State<CustomSearchBar> {
       side: MaterialStateProperty.all(
         _textController.text != ''
             ? const BorderSide(
-          color: Colors.white,
-        )
+                color: Colors.white,
+              )
             : BorderSide.none,
       ),
       hintText: 'Search',
@@ -69,7 +69,10 @@ class CustomSearchBarState extends State<CustomSearchBar> {
           width: 24,
           height: 24,
           fit: BoxFit.none,
-
+          colorFilter: const ColorFilter.mode(
+            HomeScreenConsts.primaryColor,
+            BlendMode.srcIn,
+          ),
         ),
       ),
       trailing: [
@@ -83,6 +86,10 @@ class CustomSearchBarState extends State<CustomSearchBar> {
                 width: 24,
                 height: 24,
                 fit: BoxFit.none,
+                colorFilter: const ColorFilter.mode(
+                  HomeScreenConsts.primaryColor,
+                  BlendMode.srcIn,
+                ),
               ),
             ),
           )
